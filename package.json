@@ -1,7 +1,7 @@
 {
   "name": "@bitpas/make-grid",
   "description": "Extensible base helpers for making CSS grids",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "css",
     "grid",
