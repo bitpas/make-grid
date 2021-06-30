@@ -1,0 +1,25 @@
+{
+  "name": "@bitpas/make-grid",
+  "description": "Extensible base helpers for making CSS grids",
+  "version": "0.1.0",
+  "keywords": [
+    "css",
+    "grid",
+    "layout",
+    "sass",
+    "scss"
+  ],
+  "author": "Ryan Todd Garza <ryantoddgarza@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitpas/make-grid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitpas/make-grid/issues"
+  },
+  "homepage": "https://github.com/bitpas/make-grid#readme",
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}

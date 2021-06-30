@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "sass:list";
+
+@mixin make-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin make-grid-col {
+  width: 100%;
+}
+
+@mixin make-grid-props($property: "width", $pre: "size", $post: null) {
+  @each $name, $fraction in $columns {
+    &.#{$pre + $name + $post} {
+      #{$property}: math.percentage(
+        math.div(list.nth($fraction, 1), list.nth($fraction, 2))
+      );
+    }
+  }
+}
