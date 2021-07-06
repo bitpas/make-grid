@@ -4,6 +4,14 @@
 
 Extensible base helpers for making CSS grids.
 
+## Installation
+
+Install `@bitpas/make-grid` with npm.
+
+```sh
+npm install @bitpas/make-grid
+```
+
 ## Basic usage
 
 Import `make-grid` into your project.
@@ -63,12 +71,16 @@ size11of12
 The `make-grid-props` mixin takes optional arguments to customize its output.
 
 ```scss
-@include make-grid-props($property, $pre, $post);
+make-grid-props($property, $pre, $post);
 ```
 
-You can use `make-grid-props` to set any CSS property that accepts a percentage as a valid value by passing the property name as a string to `property`. Override the generated selector's default `size` prefix by passing any string to `pre`. Append a suffix to the generated selector name by passing any string to `post`.
+You can use `make-grid-props` to set any CSS property that accepts a percentage as a valid value by passing the property name as a string to `$property`.
 
-This can be useful, for example, in constructing other grid based tools such as offsets:
+Prepend the generated selector name—overriding the default `size` prefix—by passing any string to `$pre`. For example, passing `foo__` as an argument to `$pre` makes the selector accessible as `foo__1of2` in the markup.
+
+Append the generated selector name by passing any string to `$post`. For example, passing `--bar` as an argument to `$post` makes the selector accessible as `size1of2--bar` in the markup.
+
+Leverage the `make-grid-props` helper to construct grid based tools such as offsets and responsive selectors (discussed in the next section):
 
 ```scss
 .col {
@@ -103,8 +115,8 @@ $project-breakpoints: (
   @include make-grid-col;
   @include make-grid-props('width', 'size');
 
-  @each $breakpoint, $val in project-breakpoints {
-    @media (min-width: get-preakpoint($breakpoint)) {
+  @each $breakpoint, $val in $project-breakpoints {
+    @media (min-width: get-breakpoint($breakpoint)) {
       @include make-grid-props('width', 'size', #{-$breakpoint});
     }
   }
